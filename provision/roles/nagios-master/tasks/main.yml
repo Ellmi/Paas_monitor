@@ -5,3 +5,16 @@
     state: present
     update_cache: yes
   become: yes
+
+- name: set nagios authentication user and password
+  command: "htpasswd -c -b  /etc/nagios3/htpasswd.users {{auth_user}} {{auth_password}}"
+  become: yes
+
+- name: check nagios accessable
+  uri:
+    method: GET
+    url: "http://{{host_private_ip}}/nagios3/"
+    force_basic_auth: yes
+    user: "{{auth_user}}"
+    password: "{{auth_password}}"
+    status_code: 200

@@ -1,2 +1,8 @@
 [nagios-master]
 nagios-master ansible_ssh_host=192.168.33.10
+
+[nagios-master:vars]
+host_private_ip=192.168.33.10
+admin_email=ymxing@thoughtworks
+auth_user=admin
+auth_password=happy_day

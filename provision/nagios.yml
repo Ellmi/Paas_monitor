@@ -1,0 +1,4 @@
+---
+- hosts: nagios-master
+  roles:
+    - nagios-master

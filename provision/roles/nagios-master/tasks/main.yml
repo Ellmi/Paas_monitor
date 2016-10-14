@@ -1,0 +1,7 @@
+---
+- name: install nagios
+  apt:
+    name: nagios3
+    state: present
+    update_cache: yes
+  become: yes

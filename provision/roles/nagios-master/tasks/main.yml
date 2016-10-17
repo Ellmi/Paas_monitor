@@ -26,3 +26,18 @@
     user: "{{auth_user}}"
     password: "{{auth_password}}"
     status_code: 200
+
+- name: set up customized configuration
+  notify: restart nagios
+  copy:
+    src: "{{item.src}}"
+    dest: "{{nagios_object_dir}}/{{item.dest}}"
+    owner: root
+    group: root
+    mode: 644
+  with_items:
+    - { src: hosts.cfg, dest: hosts.cfg }
+    - { src: hostgroups.cfg, dest: hostgroups.cfg }
+    - { src: services.cfg, dest: services.cfg }
+    - { src: commands.cfg, dest: additional_commands.cfg }
+  become: yes

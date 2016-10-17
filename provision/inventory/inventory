@@ -6,3 +6,4 @@ host_private_ip=192.168.33.10
 admin_email=ymxing@thoughtworks
 auth_user=admin
 auth_password=happy_day
+nagios_object_dir=/etc/nagios3/conf.d

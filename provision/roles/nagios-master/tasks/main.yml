@@ -6,8 +6,16 @@
     update_cache: yes
   become: yes
 
-- name: set nagios authentication user and password
+- name: add nagios authentication user and password
   command: "htpasswd -c -b  /etc/nagios3/htpasswd.users {{auth_user}} {{auth_password}}"
+  become: yes
+
+- name: give nagios permission for our new user in nagixo cgi.cfg file
+  replace:
+    dest: /etc/nagios3/cgi.cfg
+    regexp: 'nagiosadmin'
+    replace: '{{auth_user}}'
+    backup: yes
   become: yes
 
 - name: check nagios accessable

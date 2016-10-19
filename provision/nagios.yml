@@ -3,3 +3,7 @@
   roles:
     - common
     - nagios-master
+
+- hosts: nagios-agents
+  roles:
+    - nagios-agent

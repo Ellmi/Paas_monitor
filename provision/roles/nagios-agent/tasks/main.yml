@@ -1,0 +1,11 @@
+---
+- name: install nagios nrpe
+  script: install_nagios_nrpe.sh
+  become: yes
+
+- name: set up nagios nrpe configuration
+  replace:
+    dest: /etc/nagios/nrpe.cfg
+    regexp: 'allowed_hosts=127.0.0.1'
+    replace: 'allowed_hosts={{host_public_ip}}'
+  become: yes

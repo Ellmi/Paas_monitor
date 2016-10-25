@@ -13,9 +13,6 @@ Vagrant.configure("2") do |config|
     ansible.verbose = "vvv"
     ansible.playbook = "provision/nagios.yml"
     ansible.inventory_path = "provision/inventory/inventory"
-    # ansible.extra_vars = {
-    #     ansible_ssh_user: "ec2-user"
-    # }
   end
 
 end

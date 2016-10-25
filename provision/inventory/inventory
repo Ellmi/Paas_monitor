@@ -2,7 +2,6 @@
 nagios-master ansible_ssh_host=192.168.33.10
 
 [nagios-master:vars]
-host_public_ip=210.74.157.146
 host_private_ip=192.168.33.10
 admin_email=ymxing@thoughtworks
 auth_user=admin
@@ -10,5 +9,7 @@ auth_password=happy_day
 nagios_object_dir=/etc/nagios3/conf.d
 
 [nagios-agents]
+myblog ansible_ssh_host=52.25.7.216 ansible_port=24 ansible_ssh_private_key_file=/Users/Yanmin/.ssh/blog.pem ansible_user=ec2-user
 
 [nagios-agents:vars]
+host_public_ip=210.74.157.146
